@@ -1,0 +1,177 @@
+:root {
+    /* ========================================
+       BRAND COLORS
+    ======================================== */
+
+    --color-primary: #0f766e;
+    --color-primary-light: #14b8a6;
+    --color-primary-dark: #115e59;
+
+    --color-secondary: #0ea5e9;
+
+    /* ========================================
+       BACKGROUND COLORS
+    ======================================== */
+
+    --color-bg: #f5f7fb;
+    --color-surface: #ffffff;
+    --color-surface-secondary: #f8fafc;
+
+    /* ========================================
+       TEXT COLORS
+    ======================================== */
+
+    --color-heading: #0f172a;
+    --color-text: #475569;
+    --color-muted: #94a3b8;
+    --color-white: #ffffff;
+
+    /* ========================================
+       BORDER COLORS
+    ======================================== */
+
+    --color-border: #e2e8f0;
+
+    /* ========================================
+       SIDEBAR COLORS
+    ======================================== */
+
+    --sidebar-bg: #0f172a;
+    --sidebar-hover: #1e293b;
+    --sidebar-active: #0f766e;
+    --sidebar-text: #cbd5e1;
+
+    /* ========================================
+       STATUS COLORS
+    ======================================== */
+
+    --color-success: #16a34a;
+    --color-warning: #f59e0b;
+    --color-danger: #dc2626;
+    --color-info: #0284c7;
+
+    /* ========================================
+       UI DESIGN
+    ======================================== */
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --header-height: 70px;
+    --sidebar-width: 280px;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    --transition: all 0.25s ease;
+
+    /* ========================================
+       LAYOUT
+    ======================================== */
+
+    --header-height: 70px;
+    --sidebar-width: 280px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.top-header {
+    height: var(--header-height);
+    z-index: 1030;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    background: var(--sidebar-bg);
+    overflow-y: auto;
+}
+
+/* Content */
+.main-content {
+    margin-left: var(--sidebar-width);
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+    padding: 2rem;
+}
+
+/* Navigation */
+.sidebar .nav-link,
+.sidebar .btn {
+    color: var(--sidebar-text);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+/* Hover */
+.sidebar .nav-link:hover,
+.sidebar .btn:hover {
+    background: var(--sidebar-hover);
+    color: var(--color-white);
+}
+
+/* Active */
+.sidebar .nav-link.active {
+    background: var(--sidebar-active);
+    color: var(--color-white);
+}
+
+/* Sub Navigation */
+.sidebar .sub-nav .nav-link {
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+}
+
+/* Cards, forms, buttons */
+.card-custom {
+    background: var(--color-surface);
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+.form-control,
+.form-select {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: 12px;
+}
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: var(--color-primary);
+}
+.preview {
+    min-height: 500px;
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)),
+        url("https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1400&auto=format&fit=crop")
+            center/cover;
+}
+.btn-primary-custom {
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: 12px 24px;
+}
+.btn-primary-custom:hover {
+    background: #0b5ed7;
+}
+
+/* Small tweaks */
+.top-header .btn-link {
+    color: var(--color-white);
+}
+.sidebar .bi {
+    vertical-align: -0.125em;
+}

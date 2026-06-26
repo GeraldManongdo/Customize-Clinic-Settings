@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seo_seetings', function (Blueprint $table) {
+        Schema::create('web_contents', function (Blueprint $table) {
             $table->id();
-            $table->id('tenant_id');
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();
-            $table->timestamps(created_at: true, updated_at: true);
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->string('key');
+            $table->json('content')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seo_seetings');
+        Schema::dropIfExists('web_contents');
     }
 };

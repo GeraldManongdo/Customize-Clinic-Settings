@@ -21,7 +21,6 @@ class CreateDomainsTable extends Migration
             $table->foreignId('tenant_id')
                 ->constrained()
                 ->cascadeOnDelete();
-
             $table->timestamps();
         });
     }

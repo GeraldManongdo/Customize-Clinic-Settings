@@ -21,14 +21,7 @@ class CreateTenantsTable extends Migration
             ->constrained()
             ->onDelete('cascade');
                 $table->string('logo')->nullable();
-
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
             $table->string('address')->nullable();
-
-            $table->boolean('is_active')->default(true);
-
-
             $table->timestamps();
             $table->json('data')->nullable();
         });

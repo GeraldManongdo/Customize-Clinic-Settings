@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebContentController;
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('tenants.admin.dashboard');
 })->name('dashboard');
 
@@ -26,7 +27,10 @@ Route::get('/settings/content', function () {
     return view('tenants.admin.page_content_settings');
 })->name('content.settings');
 
+Route::put('/settings/content/{key}',
+    [WebContentController::class, 'update']
+)->name('tenant.content.update');
+
 Route::get('/settings/theme', function () {
     return view('tenants.admin.theme.settings');
 })->name('theme.settings');
-    

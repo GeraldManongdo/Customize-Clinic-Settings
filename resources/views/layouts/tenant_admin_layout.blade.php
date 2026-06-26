@@ -20,6 +20,12 @@
             <!-- Navbar -->
             @include('partials.tenant_admin_navbar')
             <main class="flex-grow-1 main-content">
+                @php
+                    $pageTitle = trim($__env->yieldContent('page_title')) ?: 'Dashboard';
+                @endphp
+
+                @include('components.page_header', ['title' => $pageTitle])
+
                 <!-- Content -->
                 @yield('content')
                 <!-- Footer -->
